@@ -4,7 +4,7 @@ function buscarProducto() {
     // Realizar la solicitud AJAX para cargar el contenido del archivo CSV
     $.ajax({
         type: "GET",
-        url: 'PackingListCreator/Public/db/productos.csv',  // Reemplaza 'productos.csv' con el nombre real de tu archivo CSV
+        url: 'Public/db/productos.csv',  // Reemplaza 'productos.csv' con el nombre real de tu archivo CSV
         dataType: "text",
         success: function (data) {
             const rows = data.split('\n');
