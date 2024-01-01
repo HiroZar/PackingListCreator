@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Packing List Creator</title>
     <!-- <link rel="stylesheet" href="./Public/css/font.css"> -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
@@ -11,17 +11,125 @@
 </head>
 </head>
 <body>
-    <label for="productId">Ingrese el ID del producto:</label>
-    <input type="text" id="productId">
-    <button onclick="buscarProducto()">Buscar Producto</button>
+    
+    <div class="p-4">
+        <div class="pb-4">
+            <label for="productId">CÓDIGO DEL PRODUCTO:</label>
+            <input type="text" id="productId" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="PD00001">
+     
+        </div>
+        <div>  
+            <label for="productId">COLOR:</label>
+            <ul class="items-center w-full border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900  flex">
+                <li class="w-full dark:border-gray-600">
+                    <div class="flex items-center ps-3">
+                        <input id="c_rojo" type="radio" value="bg-red-400" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                        <label for="c_rojo" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"><svg class="w-6 h-6 text-red-400 border-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="currentColor" viewBox="0 0 20 14">
+                            <path  d="M18.7 4.531 14.866.84A2.985 2.985 0 0 0 12.784 0H1.969A1.987 1.987 0 0 0 0 2v10a1.987 1.987 0 0 0 1.969 2h10.736a3.004 3.004 0 0 0 2.221-.983l3.912-4.309a3.023 3.023 0 0 0-.138-4.177Z"/>
+                        </svg></label>
+                    </div>
+                </li>
+                <li class="w-full dark:border-gray-600">
+                    <div class="flex items-center ps-3">
+                        <input id="c_naranja" type="radio" value="bg-orange-500" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                        <label for="c_naranja" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"><svg class="w-6 h-6 text-orange-500 border-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="currentColor" viewBox="0 0 20 14">
+                            <path  d="M18.7 4.531 14.866.84A2.985 2.985 0 0 0 12.784 0H1.969A1.987 1.987 0 0 0 0 2v10a1.987 1.987 0 0 0 1.969 2h10.736a3.004 3.004 0 0 0 2.221-.983l3.912-4.309a3.023 3.023 0 0 0-.138-4.177Z"/>
+                        </svg></label>
+                    </div>
+                </li>
+                <li class="w-full dark:border-gray-600">
+                    <div class="flex items-center ps-3">
+                        <input id="c_blanco" type="radio" value="bg-gray-800" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                        <label for="c_blanco" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"><svg class="w-6 h-6 text-gray-800 border-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="currentColor" viewBox="0 0 20 14">
+                            <path  d="M18.7 4.531 14.866.84A2.985 2.985 0 0 0 12.784 0H1.969A1.987 1.987 0 0 0 0 2v10a1.987 1.987 0 0 0 1.969 2h10.736a3.004 3.004 0 0 0 2.221-.983l3.912-4.309a3.023 3.023 0 0 0-.138-4.177Z"/>
+                        </svg></label>
+                    </div>
+                </li>
+                <li class="w-full dark:border-gray-600">
+                    <div class="flex items-center ps-3">
+                        <input id="c_verde" type="radio" value="bg-lime-500" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                        <label for="c_verde" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"><svg class="w-6 h-6 text-lime-500 border-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="currentColor" viewBox="0 0 20 14">
+                            <path  d="M18.7 4.531 14.866.84A2.985 2.985 0 0 0 12.784 0H1.969A1.987 1.987 0 0 0 0 2v10a1.987 1.987 0 0 0 1.969 2h10.736a3.004 3.004 0 0 0 2.221-.983l3.912-4.309a3.023 3.023 0 0 0-.138-4.177Z"/>
+                        </svg></label>
+                    </div>
+                </li>
+                <li class="w-full dark:border-gray-600">
+                    <div class="flex items-center ps-3">
+                        <input id="c_amarillo" type="radio" value="bg-amber-300" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                        <label for="c_amarillo" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"><svg class="w-6 h-6 text-amber-300 border-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="currentColor" viewBox="0 0 20 14">
+                            <path  d="M18.7 4.531 14.866.84A2.985 2.985 0 0 0 12.784 0H1.969A1.987 1.987 0 0 0 0 2v10a1.987 1.987 0 0 0 1.969 2h10.736a3.004 3.004 0 0 0 2.221-.983l3.912-4.309a3.023 3.023 0 0 0-.138-4.177Z"/>
+                        </svg></label>
+                    </div>
+                </li>
+                <li class="w-full dark:border-gray-600">
+                    <div class="flex items-center ps-3">
+                        <input id="c_celeste" type="radio" value="bg-sky-300" name="list-radio" class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 ">
+                        <label for="c_celeste" class="w-full py-3 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"><svg class="w-6 h-6 text-sky-300 border-black" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="14" fill="currentColor" viewBox="0 0 20 14">
+                            <path  d="M18.7 4.531 14.866.84A2.985 2.985 0 0 0 12.784 0H1.969A1.987 1.987 0 0 0 0 2v10a1.987 1.987 0 0 0 1.969 2h10.736a3.004 3.004 0 0 0 2.221-.983l3.912-4.309a3.023 3.023 0 0 0-.138-4.177Z"/>
+                        </svg></label>
+                    </div>
+                </li>
+            </ul>
+        </div>   
 
-    <div class="exportar relative overflow-x-auto">
-        <table id="productTable" border="1" class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div class="pb-4">
+            <label for="productCantidad">CANTIDAD:</label>
+            <input type="text" id="productCantidad" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000">
+
+        </div>
+        <div class="pb-4">
+            <label for="productCambio">TIPO DE CAMBIO ($):</label>
+            <input type="text" id="productCambio" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0.000">
+        
+        </div>
+        <div class="">
+            <button onclick="buscarProducto()" class="w-full bg-blue-900 p-2 text-white rounded-lg shadow-lg">AÑADIR PRODUCTO</button>
+        </div>
+                       
+    </div>
+
+   
+
+
+
+
+    <div class="exportar relative overflow-x-auto bg-cover " style="background-image: url('Public/img/bg-importadora.png')">
+        <div class="pb-4 font-bold">
+            <h3 class="w-full bg-blue-900 text-center font-bolt mb-4 text-white">PACKING LIST</h3>
+            <div class="">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="w-full">
+                        <h3 class="w-full bg-blue-900 text-center font-bolt mb-2 text-white">EXPORTADOR:</h3>
+                    </div>
+                    <div class="border-2 border-black text-center text-sm w-full">
+                        <p>EXIMPORT VALLE DEL NORTE SAC</p>
+                        <p>20608390058</p>
+                        <p>AV. NARANJAL NRO. 899 URB. 899- LOS OLIVOS LIMA - LIMA - LOS OLIVOS</p>
+                        <p>LIMA - PERU</p>
+                    </div>
+                    <div class="">
+                        <h3 class="w-full bg-blue-900 text-center font-bolt mb-2 text-white">CONSIGNATARIO:</h3>
+                    </div>
+                    <div class="border-2 border-black text-center text-sm w-full">
+                        <p>IMPORTADORA Y COMERCIALIZADORA VALLE DEL NORTE SPA</p>
+                        <p>77.394.082-7</p>
+                        <p>LT 227 STA CECILIAMANDINGA MELIPILLA</p>
+                        <p>SANTIAGO DE CHILE</p>
+                    </div>
+                  
+                </div>
+              </div>
+        </div>
+        <table id="productTable" border="1" class="w-full  text-sm text-center rtl:text-right text-black ">
+                <thead class="text-xs text-white uppercase bg-blue-900 ">
                     <tr>
-                        <th scope="col" class="px-6 py-3">Codigo</th>
-                        <th scope="col" class="px-6 py-3">Nombre</th>
-                        <th scope="col" class="px-6 py-3">Precio</th>
+                        <th scope="col" class="px-6 py-3 border-2 border-black">ITEM</th>
+                        <th scope="col" class="px-6 py-3 border-2 border-black">CANT</th>
+                        <th scope="col" class="px-6 py-3 border-2 border-black">COD</th>
+                        <th scope="col" class="px-6 py-3 border-2 border-black">DETALLE</th>
+                        <th scope="col" class="px-6 py-3 border-2 border-black">UNIDAD DE MEDIDA</th>
+                        <th scope="col" class="px-6 py-3 border-2 border-black">PESO BRUTO UNIT KG</th>
+                        <th scope="col" class="px-6 py-3 border-2 border-black">PESO BRUTO KG</th>
                         <!-- Agrega más columnas según tus necesidades -->
                     </tr>
                 </thead>
@@ -30,9 +138,15 @@
                 </tbody>
         </table>
     </div>
-
-    <p>Contenido de la página...</p>
-    <button onclick="exportarAPDF()">Exportar a PDF</button>
+    <div class="flex items-center">
+        <button onclick="exportarAPDF()" class="bg-blue-900 p-2 text-white rounded-lg shadow-lg mt-4 flex items-center">
+            Exportar a PDF
+            <svg class="w-6 h-6 text-gray-800 dark:text-white ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
+            </svg>
+        </button>
+    </div>
+    
 </body>
 <script src="./Public/Js/table.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
