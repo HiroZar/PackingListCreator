@@ -8,29 +8,40 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.css">
 </head>
 </head>
 <body>
-    <div class="grid grid-cols-1 sm:flex  p-4 bg-blue-900">
-        <div class="sm:mr-4 sm:w-full text-white font-bold">
-            <label for="productContenedor ">CONTENEDOR:</label>
-            <input type="text" id="productContenedor" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000">
-        </div>
-        <div class="sm:mr-4 sm:w-full text-white font-bold">
-            <label for="productPrecinto">PRECINTO</label>
-            <input type="text" id="productPrecinto" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000" >
-        </div>
-        <div class="sm:w-full text-white font-bold">
-            <label for="productFactura">FACTURA:</label>
-            <input type="text" id="productFactura" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000">
+    
+    <div id="DatosExtras" class="bg-blue-900 hidden transition-all duration-500 ease-in-out overflow-hidden">
+        <div class="grid grid-cols-1 sm:flex px-4 pt-2">
+            <div class="sm:mr-4 sm:w-full text-white font-bold">
+                <label for="productContenedor ">CONTENEDOR:</label>
+                <input type="text" id="productContenedor" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000">
+            </div>
+            <div class="sm:mr-4 sm:w-full text-white font-bold">
+                <label for="productPrecinto">PRECINTO</label>
+                <input type="text" id="productPrecinto" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000" >
+            </div>
+            <div class="sm:w-full text-white font-bold">
+                <label for="productFactura">FACTURA:</label>
+                <input type="text" id="productFactura" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000">
+            </div>
 
+        </div>
+        <div class="flex items-center justify-center pb-4">
+            <button onclick="ocultarExtra()" class="bg-blue-900 p-2 text-white rounded-lg shadow-lg mt-4 mr-2 flex items-center">
+                <svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 8">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7 7.674 1.3a.91.91 0 0 0-1.348 0L1 7"/>
+                  </svg>
+            </button>
         </div>
     </div>
     <div class="px-4 mt-1">
         
         <div class=" font-bold w-full mx-auto ">
 
-
+            <h3 class="w-full bg-blue-900 text-center font-bolt mb-4 text-white">PACKING LIST CREATOR BY <a href="https://www.facebook.com/HiroZar" target="_blank">HZ</a></h3>
             <div class="grid grid-cols-1 sm:flex">
                 <div class="sm:mr-4 sm:w-1/4">
                     <label for="productId">CÓDIGO:</label>
@@ -42,7 +53,7 @@
                 </div>
                 <div class="sm:w-1/4">
                     <label for="productCantidad">CANTIDAD:</label>
-                    <input type="text" id="productCantidad" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000">
+                    <input type="number" id="productCantidad" class="bg-gray-100 border border-blue-900 text-gray-900 text-sm rounded-lg focus:ring-blue-900 focus:border-blue-900 block w-full p-2.5" placeholder="0000">
         
                 </div>
             </div>
@@ -116,13 +127,20 @@
         </div> -->
 
         <div class="flex items-center pb-4">
-            <button onclick="exportarAPDF()" class="bg-blue-900 p-2 text-white rounded-lg shadow-lg mt-4 flex items-center">
+            <button onclick="exportarAPDF()" class="bg-blue-900 p-2 text-white rounded-lg shadow-lg mt-4 mr-2 flex items-center">
                 Exportar a PDF
                 <svg class="w-6 h-6 text-gray-800 dark:text-white ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 16 18">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 1v11m0 0 4-4m-4 4L4 8m11 4v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3"/>
                 </svg>
             </button>
+            <button onclick="mostrarExtra()" class="bg-blue-900 p-2 text-white rounded-lg shadow-lg mt-4 flex items-center">
+                Extras
+                <svg class="w-6 h-6 text-gray-800 ml-2 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6.143 1H1.857A.857.857 0 0 0 1 1.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 7 6.143V1.857A.857.857 0 0 0 6.143 1Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 17 6.143V1.857A.857.857 0 0 0 16.143 1Zm-10 10H1.857a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 7 16.143v-4.286A.857.857 0 0 0 6.143 11Zm10 0h-4.286a.857.857 0 0 0-.857.857v4.286c0 .473.384.857.857.857h4.286a.857.857 0 0 0 .857-.857v-4.286a.857.857 0 0 0-.857-.857Z"/>
+                  </svg>
+            </button>
         </div>     
+        
     </div>
 
    
@@ -177,7 +195,7 @@
         <div class="my-4 font-bold w-1/2 mx-auto">
             <div class="grid grid-cols-2 border-2 border-black">
                 <div class=" border border-black">
-                    <h3 id="cuentabultos" class=" bg-blue-900 text-center font-bolt text-white">0000</h3>
+                    <h3 id="cuentabultos" class=" bg-blue-900 text-center font-bolt text-white">00</h3>
                 </div>
                 <div class=" border border-black">
                     <h3 class=" text-center font-bolt text-black">BULTOS</h3>
@@ -202,19 +220,19 @@
                     <h3 class="w-full bg-blue-900 text-center font-bolt text-white">CONTENEDOR:</h3>
                 </div>
                 <div class="w-full border border-black">
-                    <h3 class="w-full text-center font-bolt text-black"></h3>
+                    <h3 id="nombreContenedor" class="w-full text-center font-bolt text-black"></h3>
                 </div>
                 <div class="w-full border border-black">
                     <h3 class="w-full bg-blue-900 text-center font-bolt text-white">PRECINTO:</h3>
                 </div>
                 <div class="w-full border border-black">
-                    <h3 class="w-full text-center font-bolt text-black">/</h3>
+                    <h3 id="nombrePrecinto" class="w-full text-center font-bolt text-black">/</h3>
                 </div>
                 <div class="w-full border border-black">
                     <h3 class="w-full bg-blue-900 text-center font-bolt text-white">FACTURA:</h3>
                 </div>
                 <div class="w-full border border-black">
-                    <h3 class="w-full text-center font-bolt text-black">E001 - </h3>
+                    <h3 id="nombreFactura" class="w-full text-center font-bolt text-black">E001 - </h3>
                 </div>
                 <div class="w-full border border-black">
                     <h3 class="w-full bg-blue-900 text-center font-bolt text-white">PUERTO DE PARTIDA:</h3>
@@ -239,6 +257,7 @@
 
     
 </body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.6/dist/sweetalert2.min.js"></script>
 <script src="./Public/Js/table.js"></script>
 <script src="./Public/Js/validaciones.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
