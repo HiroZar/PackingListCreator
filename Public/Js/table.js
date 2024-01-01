@@ -12,7 +12,7 @@ function buscarProducto() {
         }
     }
 
-    // Realizar la solicitud AJAX para cargar el contenido del archivo CSV
+    // Realizar la solicitud AJAX para cargar el contenido del archivo CSV  
     $.ajax({
         type: "GET",
         url: 'Public/db/productos.csv',  // Reemplaza 'productos.csv' con el nombre real de tu archivo CSV
@@ -39,8 +39,10 @@ function buscarProducto() {
 
                 if (codigo === productId) {
                     item ++;
-                    const newRow = `<tr class="${valorSeleccionado}"><td class="border-2 border-black">${productTableBody.find('tr').length + 1}</td><td class="border-2 border-black">${productCant}</td><td class="border-2 border-black">${codigo}</td><td class="border-2 border-black">${descripcion}</td><td class="border-2 border-black">${um}</td><td class="border-2 border-black">${peso}</td><td class="border-2 border-black">${pesobruto}</td></tr>`;
+                    const newRow = `<tr class="${valorSeleccionado}"><td class="border-2 border-black">${productTableBody.find('tr').length + 1}</td><td class="border-2 border-black cantidad">${productCant}</td><td class="border-2 border-black">${codigo}</td><td class="border-2 border-black">${descripcion}</td><td class="border-2 border-black">${um}</td><td class="border-2 border-black">${peso}</td><td class="border-2 border-black pesobruto">${pesobruto}</td></tr>`;
                     productTableBody.append(newRow);
+                    sumacantidad();
+                    sumaPesoBruto() 
                 }
             });
         },
@@ -48,4 +50,5 @@ function buscarProducto() {
             console.error("Error al cargar el archivo CSV:", error);
         }
     });
+    
 }
