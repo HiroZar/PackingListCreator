@@ -44,19 +44,19 @@ function buscarProducto() {
             
                             if (codigo === productId) {
                                 item ++;
-                                const newRow = `<tr class="${valorSeleccionado}"><td class="border-2 border-black">${productTableBody.find('tr').length + 1}</td><td class="border-2 border-black cantidad">${productCant}</td><td class="border-2 border-black">${codigo}</td><td class="border-2 border-black">${descripcion}</td><td class="border-2 border-black">${um}</td><td class="border-2 border-black">${peso}</td><td class="border-2 border-black pesobruto">${pesobruto}</td></tr>`;
+                                const newRow = `<tr class="${valorSeleccionado}"><td class="border-2 border-black">${productTableBody.find('tr').length + 1}</td><td class="border-2 border-black cantidad" contenteditable="true">${productCant}</td><td class="border-2 border-black">${codigo}</td><td class="border-2 border-black">${descripcion}</td><td class="border-2 border-black">${um}</td><td class="border-2 border-black">${peso}</td><td class="border-2 border-black pesobruto">${pesobruto}</td></tr>`;
                                 productTableBody.append(newRow);
                                 sumacantidad();
                                 sumaPesoBruto();
+                                mostrarSuccess('Producto agregado exitosamente');
                                 $('#productId').val('');
                                 $('#productCantidad').val('');
                                 $('#productDetalle').val('');
-                                $('#productId').focus();
                             }
                         });
                     },
                     error: function (error) {
-                        console.error("Error al cargar el archivo CSV:", error);
+                        mostrarError('Error al leer los productos.');
                     }
                 }); 
                 } else {
@@ -70,12 +70,43 @@ function buscarProducto() {
             }
         }   
         else {
-            mostrarError('Producto no encontrado')
+            mostrarError('Producto no encontrado');
         }
     }
     else{
         mostrarAdvertencia('Debe agregar el código del producto');
     }
-    
-    
+    $('#productId').focus();
 }
+
+document.addEventListener("DOMContentLoaded", function() {
+    const tabla = document.getElementById('productTable');
+  
+    // Agrega un evento de clic a las celdas para resaltar la fila
+    tabla.addEventListener('click', function(e) {
+      const fila = e.target.closest('tr');
+      if (fila) {
+        fila.classList.toggle('resaltado');
+      }
+      console.log('clic celda');
+    });
+  
+    // Agrega un evento de doble clic para editar la celda
+    tabla.addEventListener('dblclick', function(e) {
+      const celda = e.target;
+      if (celda.isContentEditable) {
+        celda.focus();
+      }
+      console.log('doble clic');
+    });
+  
+    // Agrega un evento de pérdida de enfoque para desactivar la edición
+    tabla.addEventListener('blur', function(e) {
+        console.log('lost focus');
+      const celda = e.target;
+      if (celda.isContentEditable) {
+        celda.blur();
+      }
+    });
+  });
+  

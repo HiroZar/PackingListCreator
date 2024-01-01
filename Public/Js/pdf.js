@@ -13,11 +13,12 @@ function exportarAPDF() {
     };
  
     // Usar html2pdf para generar el PDF
+    irArriba();
     html2pdf(elemento, opciones)
         .then(() => {
-            console.log("PDF generado exitosamente");
+            mostrarSuccess('Producto agregado exitosamente.');
         })
         .catch((error) => {
-            console.error("Error al generar el PDF:", error);
+            mostrarError('Error al general el PDF.')
         });
  }

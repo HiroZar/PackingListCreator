@@ -121,3 +121,17 @@ function mostrarError(a) {
         text: a,
     });
 }
+function mostrarSuccess(a) {
+    Swal.fire({
+        position: "center",
+        icon: "success",
+        title: a,
+        showConfirmButton: false,
+        timer: 1500
+      });
+      
+}
+function irArriba(){
+    document.body.scrollTop = 0; // Para navegadores Safari
+    document.documentElement.scrollTop = 0; // Para otros navegadores
+}
