@@ -1,4 +1,5 @@
 $('#productId').on('input', function() {
+    this.value = this.value.toUpperCase();
     let descripcionEncontrada = '';
     const productId = $('#productId').val();
     $.ajax({
@@ -44,6 +45,50 @@ $('#productFactura').on('input', function(){
     const productFactura = $('#productFactura').val();
     const Factura = document.getElementById('nombreFactura');
     Factura.textContent = productFactura.toString();
+});
+$('#boletaSenor').on('input', function(){
+    const boletaSenor = $('#boletaSenor').val();
+    const senor = document.getElementById('DatoSenor');
+    senor.textContent = boletaSenor.toString();
+});
+$('#boletaDireccion').on('input', function(){
+    const boletaDireccion = $('#boletaDireccion').val();
+    const Direccion = document.getElementById('DatoDireccion');
+    Direccion.textContent = boletaDireccion.toString();
+});
+$('#boletaRUT').on('input', function(){
+    const boletaRUT = $('#boletaRUT').val();
+    const RUT = document.getElementById('DatoRUT');
+    RUT.textContent = boletaRUT.toString();
+});
+$('#boletaNumero').on('input', function() {
+    const boletaNumero = parseFloat($('#boletaNumero').val()); // Convierte a número
+    const Numero = document.getElementById('DatoNumero');
+
+    // Verifica si es un número válido antes de continuar
+    if (!isNaN(boletaNumero)) {
+        const numeroFormateado = boletaNumero.toString();
+        const numeroConCeros = numeroFormateado.padStart(6, '0'); // Ajusta el número de ceros según tu requerimiento
+        Numero.textContent = numeroConCeros;
+    } else {
+        // Manejo de error si el valor no es un número válido
+        console.error('El valor ingresado no es un número válido.');
+    }
+});
+
+
+$('#boletaFecha').on('input', function(){
+    var fechaSeleccionada = new Date($('#boletaFecha').val()+ 'T00:00:00-05:00');
+    var fechaFormateada = fechaSeleccionada.toLocaleDateString('es-PE', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric'
+      });
+
+
+
+    const Fecha = document.getElementById('DatoFecha');
+    Fecha.textContent = fechaFormateada .toString();
 });
 
 function mostrarExtra() {
@@ -135,3 +180,113 @@ function irArriba(){
     document.body.scrollTop = 0; // Para navegadores Safari
     document.documentElement.scrollTop = 0; // Para otros navegadores
 }
+var checkbox = document.getElementById("default-checkbox2");
+
+// Verifica si el checkbox está marcado
+checkbox.addEventListener("change", function() {
+    // Verifica si el checkbox está marcado o no
+    if (checkbox.checked) {
+      mostrarSello()
+    } else {
+      ocultarSello()
+    }
+  });
+
+  function bajar() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      behavior: 'smooth'
+    });
+  }
+
+  function mostrarSello() {
+    const Isello = document.getElementById('imgSello');
+    Isello.classList.remove('hidden');
+  }
+  
+  function ocultarSello() {
+    const Isello = document.getElementById('imgSello');
+      Isello.classList.add('hidden');
+  }
+
+  function handleChange(radioButton) {
+    var selectedValue = radioButton.value;
+    const ck1 = document.getElementById('chkE');
+    const ck2 = document.getElementById('chkC');
+    const ck3 = document.getElementById('chkT');
+    if (selectedValue == 0) {
+        ck1.classList.add('hidden');
+        ck2.classList.add('hidden');
+        ck3.classList.add('hidden');
+    }
+    if (selectedValue == 1) {
+        ck1.classList.remove('hidden');
+        ck2.classList.add('hidden');
+        ck3.classList.add('hidden');
+    }
+    if (selectedValue == 2) {
+        ck1.classList.add('hidden');
+        ck2.classList.remove('hidden');
+        ck3.classList.add('hidden');
+    }
+    if (selectedValue == 3) {
+        ck1.classList.add('hidden');
+        ck2.classList.add('hidden');
+        ck3.classList.remove('hidden');
+    }
+    
+  }
+  function nuevoPago(opcion) {
+    if (opcion == 1) {
+        const NuevoProd =  document.getElementById('addPago');
+    NuevoProd.classList.remove('hidden');
+    const bOperaciones =  document.getElementById('BotonOperaciones');
+    bOperaciones.classList.add('hidden');
+    } else {
+        const NuevoProd =  document.getElementById('addPago');
+    NuevoProd.classList.add('hidden');
+    const bOperaciones =  document.getElementById('BotonOperaciones');
+    bOperaciones.classList.remove('hidden');
+    }
+  }
+  function botonesOperaciones(opcion){
+    if (opcion == 1) {
+        const NuevoProd =  document.getElementById('BotonOperaciones');
+    NuevoProd.classList.remove('hidden');
+    const bOperaciones =  document.getElementById('cabeceraFactura');
+    bOperaciones.classList.add('hidden');
+    } else {
+        const NuevoProd =  document.getElementById('BotonOperaciones');
+    NuevoProd.classList.add('hidden');
+    const bOperaciones =  document.getElementById('cabeceraFactura');
+    bOperaciones.classList.remove('hidden');
+    }
+  }
+  function nuevoBoleta(opcion){
+    if (opcion == 1) {
+        const NuevoProd =  document.getElementById('cabeceraFactura');
+    NuevoProd.classList.remove('hidden');
+    const bOperaciones =  document.getElementById('BotonesInicio');
+    bOperaciones.classList.add('hidden');
+    } else {
+        const NuevoProd =  document.getElementById('cabeceraFactura');
+    NuevoProd.classList.add('hidden');
+    const bOperaciones =  document.getElementById('BotonesInicio');
+    bOperaciones.classList.remove('hidden');
+    }
+  }
+  function nuevoProducto(opcion) {
+    if (opcion == 1) {
+        const NuevoProd =  document.getElementById('addProducto');
+    NuevoProd.classList.remove('hidden');
+    const bOperaciones =  document.getElementById('BotonOperaciones');
+    bOperaciones.classList.add('hidden');
+    } else {
+        const NuevoProd =  document.getElementById('addProducto');
+    NuevoProd.classList.add('hidden');
+    const bOperaciones =  document.getElementById('BotonOperaciones');
+    bOperaciones.classList.remove('hidden');
+    }
+    
+    
+  }
