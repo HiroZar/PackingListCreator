@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="es" xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="x-apple-disable-message-reformatting">
+	<title></title>
+	<style>
+		table, td, div, h1, p {font-family: Arial, sans-serif;}
+	</style>
+</head>
+
+
+
+<body style="margin:0;padding:0;">
+	<table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;background:#ffffff;">
+    <tr>
+      <td align="center" style="padding:0;">
+        <table style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
+          <tr>
+            <td align="center" style="padding-top: 25px;background:#001C30;">
+              <img src="https://vivetuimaginacion.shop/images/logo.png" alt="" width="100" style="height:auto;display:block;" />
+              <h1 style="color:#ffffff;padding-top: 5px;font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Vive tu imaginación</h1>
+            </td>
+          </tr>
+            <td>
+              <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+                <tr>
+                  <td style="padding:0 0 10px 0;color:#153643;">
+                    <h1 align="center" style="font-size:24px;margin:0 0 00px 0;font-family:Arial,sans-serif;">Información para tu pago</h1>
+                  </td>
+                </tr>
+                <tr>
+                  <table role="presentation" style="background:#cde4f1;width:100%;border-collapse:collapse;margin: 1px;border:0;border-spacing:0;">
+                    <thead >
+                      <tr>
+                          <th style="padding:10px;width:20%;" align="left">
+                              Banco:
+                          </th>
+                          <th style="padding:10px;width:80%;" align="left">
+                              Número de cuenta:
+                          </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                          <td style="padding:10px;width:20%;" align="left">
+                            BCP
+                          </td>
+                          <td style="padding:10px;width:20%;" align="left">
+                              19190380576009 / CCI:002-19119038057600951
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </tr>
+              </table>
+            </td>
+          <tr>
+
+          </tr>
+        </table>
+      </td>
+    </tr>
+	</table>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<tr>
+  <td align="center" style="padding:0;">
+    <table role="presentation" style="width:602px;border-collapse:collapse;border:1px solid #cccccc;border-spacing:0;text-align:left;">
+      <tr>
+        <td align="center" style="padding-top: 25px;background:#001C30;">
+          <img src="https://vivetuimaginacion.shop/images/logo.png" alt="" width="100" style="height:auto;display:block;" />
+          <h1 style="color:#ffffff;padding-top: 5px;font-size:24px;margin:0 0 20px 0;font-family:Arial,sans-serif;">Vive tu imaginación</h1>
+        </td>
+      </tr>
+      <tr>
+        <td style="padding:36px 30px 42px 30px;">
+          <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+            <tr>
+              <td style="padding:0 0 10px 0;color:#153643;">
+                <h1 align="center" style="font-size:24px;margin:0 0 00px 0;font-family:Arial,sans-serif;">Información para tu pago</h1>
+                <!-- <p style="margin:0 0 12px 0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In tempus adipiscing felis, sit amet blandit ipsum volutpat sed. Morbi porttitor, eget accumsan et dictum, nisi libero ultricies ipsum, posuere neque at erat.</p>
+                <p style="margin:0;font-size:16px;line-height:24px;font-family:Arial,sans-serif;"><a href="http://www.example.com" style="color:#ee4c50;text-decoration:underline;">In tempus felis blandit</a></p> -->
+              </td>
+            </tr>
+            <tr>
+
+            </tr>
+          </table>
+        </td>
+      </tr>
+      
+    </table>
+  </td>
+</tr>
+
+
+
+
+
+
+<table role="presentation" style="background:#cde4f1;width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+  <thead >
+      <tr>
+          <th style="padding:10px;width:20%;" align="left">
+              Banco:
+          </th>
+          <th style="padding:10px;width:80%;" align="left">
+              Número de cuenta:
+          </th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="padding:10px;width:20%;" align="left">
+             BCP
+          </td>
+          <td style="padding:10px;width:20%;" align="left">
+              19190380576009 / CCI:002-19119038057600951
+          </td>
+      </tr>
+  </tbody>
+</table>
+<h1 align="center" style="margin-top: 20px; border-top: 3px solid #dae6ee;padding:30px 0 0px 0;color:#153643;font-size:24px;font-family:Arial,sans-serif;">Tu pedido</h1>
+<table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;">
+  <thead style="background:#153e5c;color:#ffffff;" >
+      <tr>
+          <th style="padding:10px;width:20%;" align="left">
+              Productos:
+          </th>
+          <th style="padding:10px;width:80%;" align="center">
+              Precio:
+          </th>
+      </tr>
+  </thead>
+  <tbody style="background:#ffffff;">
+      <tr style="border-bottom: 1px solid #88abc4;">
+          <td style="padding:10px;width:80%;" align="left">
+            Zapatilla
+          </td>
+          
+          <td style="padding:10px;width:20%;" align="center">
+              S/.115.00
+          </td>
+      </tr >
+      <tr style="border-bottom: 1px solid #88abc4;">
+        <td style="padding:10px;width:80%;" align="left">
+          Zapatilla
+        </td>
+        
+        <td style="padding:10px;width:20%;" align="center">
+            S/.115.00
+        </td>
+      </tr>
+      <tr style="border-top: 3px solid #153e5c;background:#c8dff0;">
+        <td style="padding: 10px; width: 80%;" align="left">
+            <strong>TOTAL</strong>
+        </td>
+        <td style="padding: 10px; width: 20%;" align="center">
+          <strong>S/.115.00</strong>
+        </td>
+      </tr>
+  </tbody>
+</table>
+
+
+<td style="padding:30px;background:#001C30;">
+  <table role="presentation" style="width:100%;border-collapse:collapse;border:0;border-spacing:0;font-size:9px;font-family:Arial,sans-serif;">
+    <tr>
+      <td style="padding:0;width:70%;" align="left">
+        <p style="margin:0;font-size:14px;line-height:16px;font-family:Arial,sans-serif;color:#ffffff;">
+          © 2024 HiroZar. Todos los derechos reservados.
+        </p>
+      </td>
+      <td style="padding:0;width:30%;" align="right">
+        <table role="presentation" style="border-collapse:collapse;border:0;border-spacing:0;">
+          <tr>
+            <td style="padding:0 0 0 10px;width:38px;">
+              <a href="http://www.facebook.com/" style="color:#ffffff;"><img src="https://vivetuimaginacion.shop/images/facebook.png" alt="Facebook" width="38" style="height:auto;display:block;border:0;" /></a>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</td>

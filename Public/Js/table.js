@@ -94,7 +94,7 @@ function eliminarUltimaFila() {
         mostrarError('No hay filas para eliminar.');
     }
   }
-  let contadorItems = 1;
+  let contadorItems = 0;
 
 function buscarProductoBoleta() {
     const productId = $('#productId').val();
@@ -312,19 +312,24 @@ function sumaPreciosProductos() {
                         celdas[3].textContent = '';
                         celdas[3].style.color = '';
                         celdas[4].textContent = 'TOTAL';
-                        celdas[4].style.color = 'green';
+                        celdas[4].style.color = 'red';
 
                         let divContenedorFlex2 = document.createElement('div');
                         divContenedorFlex2.style.display = 'flex';
                         divContenedorFlex2.style.justifyContent = 'space-between';
-                        divContenedorFlex2.style.color = 'green';
+                        divContenedorFlex2.style.color = 'red';
 
                         let divSimboloDolar5 = document.createElement('div');
                         divSimboloDolar5.textContent = '$';
         
                         let divValorNumerico5 = document.createElement('div');
-                        divValorNumerico5.textContent = parseFloat(totalPrecios-totalPagos).toFixed(3);
-
+                        var diferencia = totalPrecios-totalPagos;
+                        
+                        divValorNumerico5.textContent = diferencia.toLocaleString('es-ES', {
+                            minimumFractionDigits: 3,
+                            maximumFractionDigits: 3
+                        });
+                       divValorNumerico5 = divValorNumerico5.replace(/,/g, '.');
 
                         divContenedorFlex2.appendChild(divSimboloDolar5);
                         divContenedorFlex2.appendChild(divValorNumerico5);
