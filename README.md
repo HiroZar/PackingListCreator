@@ -1,6 +1,6 @@
-<h1>Sistema de Generación de Packing List</h1>
+<h1>Generador de packing list</h1>
 
-<p>Este es un sistema interactivo de generación de Packing List para exportaciones, desarrollado con <strong>HTML</strong>, <strong>JavaScript</strong> y <strong>TailwindCSS</strong>, que incluye funcionalidades avanzadas de generación de PDF, notificaciones interactivas y carga de productos desde archivos CSV.</p>
+<p>Desarrollado con <strong>HTML</strong>, <strong>JavaScript</strong> y <strong>TailwindCSS</strong>, que incluye funcionalidades avanzadas de generación de PDF, notificaciones interactivas y carga de productos desde archivos CSV.</p>
 
 <h2>Características principales:</h2>
 <ul>
