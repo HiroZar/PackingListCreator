@@ -21,3 +21,4 @@
     <li><strong>SweetAlert2</strong> para alertas visuales</li>
     <li><strong>html2pdf.js</strong> para la generación de PDF</li>
 </ul>
+<img href="Public/img/bg-importadora.png">
