@@ -10,25 +10,22 @@ function buscarProducto() {
     for (var i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
             valorSeleccionado = radios[i].value;
-            break; // Salir del bucle una vez que se encuentre el valor seleccionado
+            break;
         }
     }
     if (productId.trim() !== ''){
         if (productDetalle.trim() !== '') {
             if (productCant.trim() !== ''){
                 if (!codigoExistente) {
-                                   // Realizar la solicitud AJAX para cargar el contenido del archivo CSV  
+                                  
                 $.ajax({
                     type: "GET",
-                    url: 'Public/db/productos.csv',  // Reemplaza 'productos.csv' con el nombre real de tu archivo CSV
+                    url: 'Public/db/productos.csv',  
                     dataType: "text",
                     success: function (data) {
                         const rows = data.split('\n');
                         const productTableBody = $('#productTable tbody');
-                        // productTableBody.empty();  // Limpiar la tabla antes de agregar nuevas filas
             
-                        // Procesar cada fila del CSV
-                        
                         rows.forEach(row => {
                             
                             const columns = row.split(',');
@@ -36,9 +33,6 @@ function buscarProducto() {
                             const descripcion = columns[1];
                             const peso = columns[2];
                             const um = columns[3];
-            
-            
-                            // Agregar a la tabla solo si el ID coincide
                             const pesobruto = (peso*productCant).toFixed(2);
             
             
@@ -79,12 +73,9 @@ function buscarProducto() {
     $('#productId').focus();
 }
 function eliminarUltimaFila() {
-    // Obtén la referencia a la tabla
     var miTabla = document.getElementById("productTable");
 
-    // Verifica si hay al menos dos filas (la cabecera y una fila de datos)
     if (miTabla.rows.length > 1) {
-      // Elimina la última fila
       miTabla.deleteRow(-1);
       sumacantidad();
       sumaPesoBruto();
@@ -116,17 +107,13 @@ function buscarProductoBoleta() {
         if (productDetalle.trim() !== '') {
             if (productCant.trim() !== ''){
                 if (!codigoExist) {
-                                   // Realizar la solicitud AJAX para cargar el contenido del archivo CSV  
                 $.ajax({
                     type: "GET",
-                    url: 'Public/db/productos.csv',  // Reemplaza 'productos.csv' con el nombre real de tu archivo CSV
+                    url: 'Public/db/productos.csv', 
                     dataType: "text",
                     success: function (data) {
                         const rows = data.split('\n');
                         const productTableBody = $('#productTables tbody');
-                        // productTableBody.empty();  // Limpiar la tabla antes de agregar nuevas filas
-            
-                        // Procesar cada fila del CSV
                         
                         rows.forEach(row => {
                             const columns = row.split(',');
@@ -145,27 +132,19 @@ function buscarProductoBoleta() {
                                         celdas[1].textContent = productCant;
                                         celdas[2].textContent = fechaFormateada.toString();
                                         celdas[3].textContent = descripcion;
-                        
-
-                                        // Crear contenedor flex
                                         let divContenedorFlex = document.createElement('div');
                                         divContenedorFlex.style.display = 'flex';
                                         divContenedorFlex.style.justifyContent = 'space-between';
-
-                                        // Crear div para el símbolo de dólar
                                         let divSimboloDolar4 = document.createElement('div');
                                         divSimboloDolar4.textContent = '$';
 
-                                        // Crear div para el valor numérico en celda 4
                                         let divValorNumerico4 = document.createElement('div');
                                         divValorNumerico4.textContent = parseFloat(productPrec).toFixed(3);
                                         divValorNumerico4.classList.add('pPrecioU'); 
 
-                                        // Agregar divs al contenedor flex
                                         divContenedorFlex.appendChild(divSimboloDolar4);
                                         divContenedorFlex.appendChild(divValorNumerico4);
 
-                                        // Limpiar contenido existente y agregar el contenedor a la celda 4
                                         celdas[4].innerHTML = '';
                                         celdas[4].appendChild(divContenedorFlex);
 
@@ -173,18 +152,16 @@ function buscarProductoBoleta() {
                                         divContenedorFlex2.style.display = 'flex';
                                         divContenedorFlex2.style.justifyContent = 'space-between';
                         
-                                        // Crear div para el símbolo del dólar en celda 5
                                         let divSimboloDolar5 = document.createElement('div');
                                         divSimboloDolar5.textContent = '$';
                         
-                                        // Crear div para el valor numérico en celda 5
                                         let divValorNumerico5 = document.createElement('div');
                                         divValorNumerico5.textContent = (productPrec * productCant).toFixed(3);
                                         divValorNumerico5.classList.add('pPrecioT'); 
 
                                         divContenedorFlex2.appendChild(divSimboloDolar5);
                                         divContenedorFlex2.appendChild(divValorNumerico5);
-                                        // Limpiar contenido existente y agregar divs a celda 5
+
                                         celdas[5].innerHTML = '';
                                         celdas[5].appendChild(divContenedorFlex2);
                                         return;
@@ -285,18 +262,12 @@ function sumaPreciosProductos() {
     var totalPrecios = 0;
     var totalPagos = 0;
     $('.pPago').each(function() {
-        // Obtiene el valor de cada elemento y lo suma al total.
         var contenidoDiv = $(this).text();
-        totalPagos += parseFloat(contenidoDiv) || 0; // Convierte a número y maneja casos no numéricos.
-
-        // Puedes agregar aquí otros cambios que necesites hacer a cada elemento si es necesario.
+        totalPagos += parseFloat(contenidoDiv) || 0;
     });
     $('.pPrecioT').each(function() {
-        // Obtiene el valor de cada elemento y lo suma al total.
         var contenidoDiv = $(this).text();
-        totalPrecios += parseFloat(contenidoDiv) || 0; // Convierte a número y maneja casos no numéricos.
-
-        // Puedes agregar aquí otros cambios que necesites hacer a cada elemento si es necesario.
+        totalPrecios += parseFloat(contenidoDiv) || 0; 
     });
     var tabla = document.getElementById("productTables").getElementsByTagName('tbody')[0];
     var filas = tabla.getElementsByTagName("tr");
@@ -347,19 +318,15 @@ function calcularSaldos() {
     var totalPrecios = 0;
 
     $('.pPago').each(function() {
-        // Obtiene el valor de cada elemento y lo suma al total.
+        
         var contenidoDiv = $(this).text();
-        totalPagos += parseFloat(contenidoDiv) || 0; // Convierte a número y maneja casos no numéricos.
-
-        // Puedes agregar aquí otros cambios que necesites hacer a cada elemento si es necesario.
+        totalPagos += parseFloat(contenidoDiv) || 0; 
     });
 
     $('.pPrecioT').each(function() {
-        // Obtiene el valor de cada elemento y lo suma al total.
+       
         var contenidoDiv = $(this).text();
-        totalPrecios += parseFloat(contenidoDiv) || 0; // Convierte a número y maneja casos no numéricos.
-
-        // Puedes agregar aquí otros cambios que necesites hacer a cada elemento si es necesario.
+        totalPrecios += parseFloat(contenidoDiv) || 0; 
     });
     var tabla = document.getElementById("productTables").getElementsByTagName('tbody')[0];
     var filas = tabla.getElementsByTagName("tr");
