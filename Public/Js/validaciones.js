@@ -4,14 +4,10 @@ $('#productId').on('input', function() {
     const productId = $('#productId').val();
     $.ajax({
         type: "GET",
-        url: 'Public/db/productos.csv',  // Reemplaza 'productos.csv' con el nombre real de tu archivo CSV
+        url: 'Public/db/productos.csv',
         dataType: "text",
         success: function (data) {
             const rows = data.split('\n');
-            // productTableBody.empty();  // Limpiar la tabla antes de agregar nuevas filas
-
-            // Procesar cada fila del CSV
-            
             rows.forEach(row => {
                 
                 const columns = row.split(',');
@@ -62,16 +58,16 @@ $('#boletaRUT').on('input', function(){
     RUT.textContent = boletaRUT.toString();
 });
 $('#boletaNumero').on('input', function() {
-    const boletaNumero = parseFloat($('#boletaNumero').val()); // Convierte a número
+    const boletaNumero = parseFloat($('#boletaNumero').val()); 
     const Numero = document.getElementById('DatoNumero');
 
-    // Verifica si es un número válido antes de continuar
+   
     if (!isNaN(boletaNumero)) {
         const numeroFormateado = boletaNumero.toString();
-        const numeroConCeros = numeroFormateado.padStart(6, '0'); // Ajusta el número de ceros según tu requerimiento
+        const numeroConCeros = numeroFormateado.padStart(6, '0'); 
         Numero.textContent = numeroConCeros;
     } else {
-        // Manejo de error si el valor no es un número válido
+       
         console.error('El valor ingresado no es un número válido.');
     }
 });
@@ -103,7 +99,7 @@ function mostrarExtra() {
     datosExtras.classList.add('h-0');
     setTimeout(() => {
       datosExtras.classList.add('hidden');
-    }, 500); // Ajusta el tiempo de espera según la duración de la transición
+    }, 500); 
   }
   
 
@@ -111,7 +107,7 @@ function sumacantidad() {
     const celdasCantidad = document.querySelectorAll('#productTable .cantidad');
     let sumaCantidades = 0;
     celdasCantidad.forEach((celda) => {
-        const cantidad = parseInt(celda.textContent, 10) || 0; // Convertir el texto a número, o usar 0 si no se puede convertir
+        const cantidad = parseInt(celda.textContent, 10) || 0; 
         sumaCantidades += cantidad;
       }); 
     const elementoSuma = document.getElementById('cuentabultos');
@@ -119,33 +115,27 @@ function sumacantidad() {
 }
 
 function verificarCodigoExistente(productId) {
-    // Obtener todas las filas de la tabla
     const filas = document.querySelectorAll('#productTable tbody tr');
-
-    // Verificar si el código ya existe en alguna fila
     for (let i = 0; i < filas.length; i++) {
-        const codigoEnFila = filas[i].cells[2].textContent.trim(); // Índice 2 para la tercera columna (base 0)
+        const codigoEnFila = filas[i].cells[2].textContent.trim();
 
         if (codigoEnFila === productId) {
-            return true; // El código ya existe
+            return true;
         }
     }
 
-    return false; // El código no existe
+    return false;
 }
 function sumaPesoBruto() {
     const celdasPesos = document.querySelectorAll('#productTable .pesobruto');
     let sumaPesos = 0;
 
     celdasPesos.forEach((celda) => {
-        const peso = parseFloat(celda.textContent) || 0; // Convertir el texto a número de punto flotante, o usar 0 si no se puede convertir
+        const peso = parseFloat(celda.textContent) || 0;
         sumaPesos += peso;
     });
 
-    // Formatear la suma con dos decimales
     const sumaPesosFormateada = sumaPesos.toFixed(2);
-
-    // Actualizar el elemento HTML con la suma formateada
     const elementoPesos = document.getElementById('cuentapesos');
     elementoPesos.textContent = sumaPesosFormateada;
 }
@@ -177,14 +167,12 @@ function mostrarSuccess(a) {
       
 }
 function irArriba(){
-    document.body.scrollTop = 0; // Para navegadores Safari
-    document.documentElement.scrollTop = 0; // Para otros navegadores
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
 }
 var checkbox = document.getElementById("default-checkbox2");
 
-// Verifica si el checkbox está marcado
 checkbox.addEventListener("change", function() {
-    // Verifica si el checkbox está marcado o no
     if (checkbox.checked) {
       mostrarSello()
     } else {
